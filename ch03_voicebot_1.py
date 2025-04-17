@@ -7,6 +7,11 @@ from datetime import datetime
 from io import BytesIO
 from gtts import gTTS
 import base64
+from pydub import AudioSegment
+
+# ffmpeg와 ffprobe 경로를 수동 지정 (Streamlit Cloud용)
+AudioSegment.converter = "/usr/bin/ffmpeg"
+AudioSegment.ffprobe = "/usr/bin/ffprobe"
 
 # STT: Whisper 모델로 오디오 -> 텍스트
 def STT(audio, client):
